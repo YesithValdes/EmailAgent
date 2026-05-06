@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Credentials & Environment
+.env
+token.json
+credentials.json
+secrets.json
+.secrets/
+**/secrets.json
+**/.secrets/
+*.pem
+
+# LangGraph / LangChain
+.langgraph_api/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Frontend (if keeping in same repo)
+agent-inbox/node_modules/
+agent-inbox/.next/
+agent-inbox/out/
+agent-inbox/build/
+agent-inbox/.env.local
+agent-inbox/.env.development.local
+agent-inbox/.env.test.local
+agent-inbox/.env.production.local

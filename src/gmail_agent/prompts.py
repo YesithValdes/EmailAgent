@@ -22,6 +22,103 @@ Classify the below email into one of these categories.
 < Rules >
 {triage_instructions}
 </ Rules >
+
+< Examples >
+Use the following correctly classified examples as a guide for your decision.
+
+--- Example 1 ---
+From: Alice Smith <alice.smith@company.com>
+Subject: Quick question about API documentation
+Body: I noticed a few endpoints seem to be missing from the specs, /auth/refresh and /auth/validate. Could you help clarify?
+→ classification: respond
+Reason: A direct technical question from a colleague that requires a reply.
+
+--- Example 2 ---
+From: Marketing Team <marketing@company.com>
+Subject: New Company Newsletter Available
+Body: The latest edition of our company newsletter is now available on the intranet.
+→ classification: ignore
+Reason: A generic internal marketing broadcast with no action required and no relevant content.
+
+--- Example 3 ---
+From: System Admin <sysadmin@company.com>
+Subject: Scheduled maintenance - database downtime
+Body: We'll be performing scheduled maintenance on the production database tonight from 2AM to 4AM EST.
+→ classification: notify
+Reason: Important operational information worth knowing, but no reply is needed.
+
+--- Example 4 ---
+From: Project Manager <pm@client.com>
+Subject: Tax season let's schedule call
+Body: Are you available next week? Tuesday or Thursday afternoon would work best for me, for about 45 minutes.
+→ classification: respond
+Reason: A direct meeting request that requires confirming availability and scheduling.
+
+--- Example 5 ---
+From: HR Department <hr@company.com>
+Subject: Reminder: Submit your expense reports
+Body: All expense reports for the previous month need to be submitted by this Friday.
+→ classification: notify
+Reason: An administrative deadline reminder. No reply is needed, but it is worth being aware of.
+
+--- Example 6 ---
+From: Conference Organizer <events@techconf.com>
+Subject: Do you want to attend this conference?
+Body: We're inviting you to TechConf 2025. Early bird registration is available until April 30th. Would you be interested?
+→ classification: respond
+Reason: A direct invitation with a deadline that requires a personal reply expressing interest or declining.
+
+--- Example 7 ---
+From: GitHub <notifications@github.com>
+Subject: PR #42: Comment from alex-dev
+Body: alex-dev commented on your pull request suggesting adding a timeout parameter.
+→ classification: notify
+Reason: A GitHub notification about activity on a PR. Worth knowing, but a reply via email is not required.
+
+--- Example 8 ---
+From: Community Pool <info@cityrecreation.org>
+Subject: Sign up daughter for swimming class
+Body: Summer swimming registration is now open for intermediate classes. Please let us know if you'd like to reserve a spot.
+→ classification: respond
+Reason: A personal family matter that explicitly asks for a reply to reserve a spot.
+
+--- Example 9 ---
+From: AWS Monitoring <no-reply@aws.amazon.com>
+Subject: System admin alert: Instance CPU utilization exceeds threshold
+Body: EC2 instance i-0b2d3e4f5a6b7c8d9 has exceeded 90% CPU utilization for 15 minutes.
+→ classification: notify
+Reason: An automated system alert with important operational information. No email reply is needed.
+
+--- Example 10 ---
+From: Client Success <success@vendor.com>
+Subject: Your subscription will renew automatically
+Body: Your annual subscription will renew on 04/15/2025 and your card will be charged $1,499.00.
+→ classification: notify
+Reason: A billing notification worth tracking. No reply is required unless changes are needed.
+
+--- Example 11 ---
+From: Dr. Roberts <droberts@medical.org>
+Subject: Annual checkup reminder
+Body: It's time for your annual checkup. Please call our office to schedule an appointment.
+→ classification: respond
+Reason: A personal health reminder that implicitly requires taking action (calling or responding to schedule).
+
+--- Example 12 ---
+From: Social Media Platform <notifications@social.com>
+Subject: 5 people liked your post
+Body: 5 people liked your recent post about Machine Learning Techniques for NLP.
+→ classification: ignore
+Reason: A social media engagement notification with no business or personal relevance. Safely ignorable.
+
+--- Example 13 ---
+From: Marketing Team <marketing@openai.com>
+Subject: Newsletter: New Model from OpenAI
+Body: We're excited to announce GPT-5, a successor to GPT-4. It's available now.
+→ classification: notify
+Reason: A newsletter about a relevant new AI model from a key industry player. Worth knowing, but no reply is needed.
+</ Examples >
+
+You MUST output exactly one of these three values for classification: "ignore", "notify", or "respond".
 """
 
 # Email assistant triage user prompt 

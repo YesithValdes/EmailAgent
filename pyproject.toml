@@ -20,6 +20,8 @@ dependencies = [
     "pyppeteer",
     "html2text",
     "rich",
+    "langchain-ollama",
+    "langchain-google-genai>=4.2.4",
 ]
 
 [project.optional-dependencies]

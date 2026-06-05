@@ -21,7 +21,9 @@ tools = get_tools(["send_email_tool", "schedule_meeting_tool", "check_calendar_t
 tools_by_name = get_tools_by_name(tools)
 
 # Initialize the LLM for use with router / structured output
-llm = init_chat_model("groq:openai/gpt-oss-120b", temperature=0.0)
+#llm = init_chat_model("gemini-3.5-flash", model_provider="google_genai", temperature=0.0)  # Gemini (gratis)
+llm = init_chat_model("gemma4:e2b", model_provider="ollama", temperature=0.0)            # Ollama (local)
+# llm = init_chat_model("llama-3.3-70b-versatile", model_provider="groq", temperature=0.0) # Groq API
 llm_router = llm.with_structured_output(Router) 
 
 # Initialize the LLM, enforcing tool use (of any available tools) for agent
@@ -93,7 +95,7 @@ def update_memory(store, namespace, messages):
     # Get the existing memory
     user_preferences = store.get(namespace, "user_preferences")
     # Update the memory
-    llm = init_chat_model("groq:openai/gpt-oss-120b", temperature=0.0).with_structured_output(UserPreferences)
+    llm = init_chat_model("llama3.1", model_provider="ollama", temperature=0.0).with_structured_output(UserPreferences)
     result = llm.invoke(
         [
             {"role": "system", "content": MEMORY_UPDATE_INSTRUCTIONS.format(current_profile=user_preferences.value, namespace=namespace)},

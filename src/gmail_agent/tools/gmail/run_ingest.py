@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 """
 Simple Gmail ingestion script based directly on test.ipynb that works with LangSmith tracing.
 
@@ -302,7 +302,7 @@ def parse_args():
     parser.add_argument(
         "--graph-name", 
         type=str, 
-        default="email_assistant_hitl_memory_gmail",
+        default="email_agent",
         help="Name of the LangGraph to use"
     )
     parser.add_argument(
